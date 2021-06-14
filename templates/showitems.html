@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+ <!-- DataTables Example -->
+<div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Items </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                </tfoot>
+                <tbody>
+                {% for item in items %}
+                  <tr>
+                    <td>{{ item['id'] }}</td>
+                    <td>{{ item['name'] }}</td>
+                    <td>{{ item['description'] }}</td>
+                    <td>{{ item['price'] }}</td>
+                    <th><a href="{{ url_for('edititems', id=item['id']) }}">Edit</a></th>
+                    <th><a href="{{ url_for('deleteitems', id=item['id']) }}">Delete</a></th>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+
+{% endblock %}

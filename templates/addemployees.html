@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+ <!-- DataTables Example -->
+<div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Add Items</div>
+
+    <h1>{% block title %} Add e new Employee {% endblock %}</h1>
+<form method="post">
+     <div class="form-group">
+        <label for="name">Title</label>
+        <input type="text" name="name" autocomplete="off"
+     placeholder="Employee name" class="form-control"
+     value="{{ request.form['name'] }}"></input>
+     </div>
+
+
+     <div class="form-group">
+     <label for="position">Position</label>
+     <textarea name="position" placeholder="Position"
+     class="form-control">{{ request.form['position']
+    }}</textarea>
+     </div>
+
+    <div class="form-group">
+     <label for="wage">Wage</label>
+     <textarea name="wage" placeholder="Wage"
+     class="form-control">{{ request.form['wage']
+    }}</textarea>
+     </div>
+
+     <div class="form-group">
+     <button type="submit" class="btn btn-primary">Submit</button>
+     </div>
+</form>
+</div>
+
+{% endblock %}
